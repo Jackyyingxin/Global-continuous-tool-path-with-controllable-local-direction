@@ -1,5 +1,5 @@
 # Global-continuous-tool-path-with-controllable-local-direction
-##  Our code consists of four main modules. At first, you need to input the mesh model into the slicer to generate 2D connected region. A 2D connected region is saved as seperate inner and outer contours. Our slicer refernces the paper "An Optimal Algorithm for 3D Triangle Mesh Slicing" . 
+##  Our code consists of three main modules. At first, you need to input the mesh model into the slicer to generate 2D connected region. A 2D connected region is saved as seperate inner and outer contours. Our slicer refernces the paper "An Optimal Algorithm for 3D Triangle Mesh Slicing" . 
 ### 1.Two-dimensional continuous toolpath generation:  
 In this moudle you can generate the continuous toolpath in any fill angle for the inputed 2D connected region. The input to this module are a 2D connected region  $\mathbf{R}$ consisting of inner and outer contours, fill angle $\alpha$ and fill interval w.  
 This moudle have four main algorithms.  
@@ -12,5 +12,6 @@ In this moudle you can generate the continous toolpath with controllable local d
 the continous toolpath with controllable local direction.  
 ### 3. Idle stroke length optimization:  
 This moudle is used to reduce the idle stroke and has three main algorithms.  
-1. Printing sequence optimizatin: this algorithm is used to optimal the printing order of the sequnce of the 2D connected regions sliced to avoid the collision and reduce idle stroke. The input are horizontal threshold $T_x$, height threshold $T_y$ and the sequnce of the 2D connected regions.
-2. Using 
+1. Printing sequence optimizatin: this algorithm is used to optimal the printing order of the sequnce of the 2D connected regions sliced to avoid the collision and reduce idle stroke. The input are horizontal threshold $T_x$, height threshold $T_y$ and the sequnce of the 2D connected regions. The output is the printing sequence of 2D connected region $\mathbf{r}$.  
+2. Using the GA to select connecting points: this algorithm is used to selcet connecting points between adjecent 2D paths in the order of $\mathbf{r}$. The input is $\mathbf{r}$ and the set of 2D continuous paths, population quantity $M$ , the number of iterations $N$ , crossover rate $Q_c$ , mutation $Q_m$ , $eps$, the number of sampling points $m$ . The output is the global continuous path. 
+3. Using the SAT to avoid interference: this algorithm is used to adjust the idle stroke of the global continuous path to avoid interference. The input is $\mathbf{r}$, the radius of nozzele and the global continuous path. The output is the optimized global continuous path. 
