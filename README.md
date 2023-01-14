@@ -7,5 +7,7 @@ This moudle have four main algorithms.
 2. Geomtry Decomposition: this algorithm is used to decompose the inputed fill region into sub-regions and keep the number of sub-regions as small as possible.  
 3. fill the subregions and connect the sub-paths: this algorithm is used to generate the sub-paths of the sub-regions and connect the sub-paths into a continuous path $\zeta$.  
 4. toolpath optimization: this algorithm is used to rotate the $\zeta_i$ by $\alpha$ and connect every $\zeta_i$ to $b$ to generate $\gamma$. Using gradient descent to optimize $\zeta$ for uniform fill spacing.  
-# 2. Cotinuous IICP:
- 
+# 2. Cotinuous IICP:  
+In this moudle you can generate the continous toolpath with controllable local direction. The input are the partitions of a 2D connected region with their fill angles. The input of this moudle cannot generate from the slicer in this project. Users need to prepare their own input. This moudle fill the parttions with the method of moudle 1. Build an undirected graph from the adjacency of partitions and use the minimum spanning tree of the undirected graph to connect the continuous paths of partitions to 
+the continous toolpath with controllable local direction.  
+
