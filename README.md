@@ -6,8 +6,8 @@ This moudle have four main algorithms.
 1. Pre-pcossing: this algorithm is used to smooth the $\mathbf{R}$, convert the any fill direction into horizontal fill and offset the $\mathbf{R}$ to generate conformal toolpath $b$ and fill regions $mathbf{o}$ .  
 2. Geomtry Decomposition: this algorithm is used to decompose the inputed fill region into sub-regions and keep the number of sub-regions as small as possible.  
 3. fill the subregions and connect the sub-paths: this algorithm is used to generate the sub-paths of the sub-regions and connect the sub-paths into a continuous path $\zeta$.  
-4. toolpath optimization: this algorithm is used to rotate the $\zeta_i$ by $\alpha$ and connect every $\zeta_i$ to $b$ to generate $\gamma$. Using gradient descent to optimize $\zeta$ for uniform fill spacing.
-   //The path optimization algorithm still works for the rest of the filled paths, but it fails to optimize the part of the path with self-intersections
+4. toolpath optimization: this algorithm is used to rotate the $\zeta_i$ by $\alpha$ and connect every $\zeta_i$ to $b$ to generate $\gamma$. Using gradient descent to optimize $\zeta$ for uniform fill spacing.\
+   The path optimization algorithm still works for the rest of the filled paths, but it fails to optimize the part of the path with self-intersections
    ![before](https://github.com/Jackyyingxin/Global-continuous-tool-path-with-controllable-local-direction/assets/96177758/fb9fe40b-2caa-42a8-97c0-7c6ed453e06f)
    ![after](https://github.com/Jackyyingxin/Global-continuous-tool-path-with-controllable-local-direction/assets/96177758/7fd94eaa-1738-447f-baf2-2a8522f19892)
 ### 2. Cotinuous IICP:  
