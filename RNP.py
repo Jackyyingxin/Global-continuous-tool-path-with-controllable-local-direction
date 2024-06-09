@@ -1,6 +1,6 @@
 import math
-import GenDpPath5
-import build_connect_tree
+
+import Polyline
 from Utility import *
 
 class DNP:
@@ -8,7 +8,7 @@ class DNP:
     def __init__(self, polyline, interval, filter_angle, flag=0):
         self.polyline = polyline
         self.angle = 0
-        self.DNP = GenDpPath5.Polyline()
+        self.DNP = Polyline.Polyline()
         self.sp = polyline.points[0]
         self.k = 0
         self.interval = interval
@@ -29,7 +29,7 @@ class DNP:
         return angle
 
     def dnp(self):
-        self.DNP = GenDpPath5.Polyline()
+        self.DNP = Polyline.Polyline()
         self.DNP.points.append(self.polyline.points[0])
         pre = 1
         index = 1
@@ -67,7 +67,6 @@ class DNP:
                     self.DNP.points.append(self.polyline.points[index])
                     pre = index + 1
                     index = index + 1
-                    build_connect_tree.path_show([self.DNP])
                 else:
                     if radToDeg(angle) >= self.angle:
                         self.DNP.points.append(self.polyline.points[index])

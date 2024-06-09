@@ -8,7 +8,6 @@ import GeomBase
 import Polyline
 import GeoError
 import RNP
-import build_connect_tree
 import resample
 import CSS
 from GenPath import GenDpPath

@@ -1,4 +1,4 @@
-import Erroe
+import GeoError
 import GeomBase
 from VtkAdaptor import VtkAdaptor
 import utils
@@ -33,7 +33,7 @@ class Global_Connect:
                 if len(index_j) != 0:
                     index[j] = index_j
             if len(index) == 0:
-                raise Erroe.Connect_Error("error", self.paths[j])
+                raise GeoError.Connect_Error("error", self.paths[j])
             index = sorted(index.items(), key=lambda x: abs(x[1][0]))
             index = index[0]
             j = index[0]

@@ -1,11 +1,5 @@
 import copy
-
-#import test_module
 from GeomBase import *
-#import build_connect_tree
-import pyclipper
-import numpy
-from Erroe import *
 
 
 class Polyline:

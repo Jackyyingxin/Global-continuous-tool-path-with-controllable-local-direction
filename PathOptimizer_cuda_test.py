@@ -7,8 +7,6 @@ from sklearn.neighbors import KDTree
 import VtkAdaptor
 import numpy as np
 
-from NEW_py_ver.TSP import Resample
-from NEW_py_ver.TSP.POMO import Visual_test
 
 
 class optimizer:
@@ -26,6 +24,7 @@ class optimizer:
         self.Pstar = None
         self.X = None
         self.num_path = self.path.shape[0]
+        self.loss_log = []
 
     def init_segment(self):
         tensor_start_list = []
@@ -298,9 +297,10 @@ class optimizer:
         self.X.requires_grad = True
         optimizer = torch.optim.Adam([self.X], lr=lamada)
         f = self.build_function()
-        f = 0.7*f + 0.2 * self.build_smooth_term()
+        f = f + 4 * self.build_smooth_term()
         optimizer.zero_grad()
         f.backward()
+        self.loss_log.append(f.item())
         optimizer.step()
         self.path[:, :2] = self.X.detach()
 
@@ -313,8 +313,6 @@ class optimizer:
         for _ in range(times):
             self.CacIp()
             self.optimize(lamada)
-        self.path = self.path.cpu()
-
 
 def load_data(file_path, device = "cuda"):
     # file_path is used to save polygon
@@ -347,7 +345,7 @@ if __name__ == "__main__":
     polygon = load_data(file_path)
     # Because the Fermat spiral path coincides with the boundary.
     # we need to bias the boundary outward to get the correct boundary
-    polygon = Visual_test.Polygon_offset(polygon, 1e5, 4)
+    # polygon = Visual_test.Polygon_offset(polygon, 1e5, 4)
     polygon = [poly.cuda().to(torch.float64) for poly in polygon]
     path = torch.from_numpy(np.loadtxt(path_file_path))
     # read boundary and path from xyz txt
@@ -357,9 +355,9 @@ if __name__ == "__main__":
     path = path.cuda()
     # The search radius affects the optimization effect
     opt = optimizer(path, polygon, 4, 4 * 4)
-    Visual_test.show_path_and_polygon(opt.path, polygon, 1, "before")
+    # Visual_test.show_path_and_polygon(opt.path, polygon, 1, "before")
     opt.start(50, 0.05)
-    Visual_test.show_path_and_polygon(opt.path, polygon, 1,  "after")
+    # Visual_test.show_path_and_polygon(opt.path, polygon, 1,  "after")
 
 
 

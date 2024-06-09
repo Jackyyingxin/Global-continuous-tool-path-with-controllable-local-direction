@@ -94,7 +94,6 @@ def generate_2D_continuous_path(inner_path, out_path, start, coefficient, end, i
                     c1 = va.showPolyline(polygon[i])
                     c1.GetProperty().SetColor(0, 0, 1)
                     c1.GetProperty().SetLineWidth(2)
-
             va.display()
             for i in range(len(filling_areas)):
                 for j in range(len(filling_areas[i])):
