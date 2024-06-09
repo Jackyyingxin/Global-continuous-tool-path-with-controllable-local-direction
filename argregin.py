@@ -1,13 +1,10 @@
 import itertools
 import numpy as np
-
+import pyclipper
+from pyclipper import Pyclipper
 import VtkAdaptor
-import arrviable
-import build_connect_tree
-import Tree
 import utils
 from GenHatch import *
-from pyclipper import *
 from ClipperAdaptor import *
 import GeoError
 
@@ -320,35 +317,7 @@ class ArgRegion:
 
         return "false"
 
-    # 现在的目标找到一个绝对不会被删除的节点做父节点
-    def initTree(self, distancematrix, region):
-        root = self.correct_poly(region)
-        if root == "false":
-            return False
-        T = Tree.MultiTree("{root}".format(root=root), region)
-        dislist = distancematrix[root:root + 1].tolist()
-        var1 = Tree.TreeNode('{parentnode}'.format(parentnode=root))
-        for j in range(len(dislist[0])):
-            if dislist[0][j] == 1:
-                var2 = Tree.TreeNode('{childnode}'.format(childnode=j))
-                T.add(var2, var1)
-        return T
 
-    def get_T(self, distancematrix, regions):
-
-        for i in range(len(regions)):
-            T = Tree.MultiTree("index".format(i), regions[i])
-        pass
-
-    def Adj(self, contour1, contour2):  # 判断相邻
-        for i in range(len(contour1.points) - 1):
-            if contour1.points[i].y == contour1.points[i + 1].y:
-                for j in range(len(contour2.points) - 1):
-                    if contour2.points[j].y == contour2.points[j + 1].y:
-                        a = arrviable.overlap(contour1.points[i], contour1.points[i + 1], contour2.points[j],
-                                              contour2.points[j + 1])
-                        if a == 1:
-                            return 1
 
     def get_ys(self, poly):  # 在总ys中抽取每个轮廓中的扫描线
         yMin, yMax = float('inf'), float('-inf')
@@ -494,7 +463,7 @@ class ArgRegion:
             #        break
 
             if len(turnpts) == 0:
-                raise decomposition("误差分解出错，跳过轮廓")
+                raise GeoError.Decomposition("误差分解出错，跳过轮廓")
             pt = turnpts[0]
             polygon = self.polygon_turnpts(queue, pt)
 
@@ -504,7 +473,7 @@ class ArgRegion:
             try:
                 L_Polys, L_splitter = self.get_L_R_poly(pt, hatchPtses, 0, polygon)
                 R_Polys, R_splitter = self.get_L_R_poly(pt, hatchPtses, 1, polygon)
-            except Turnpt_E:
+            except GeoError.Turnpt_E:
                 print("has only one lpt or rpt")
                 turnpts.remove(pt)
                 queue.insert(0, polygon)

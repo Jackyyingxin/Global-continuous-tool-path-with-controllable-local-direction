@@ -1,7 +1,10 @@
+import numpy
+import pyclipper
 
 import Polyline
 import utils
 import GeomAIgo
+from GeoError import Small
 from Utility import *
 from GenHatch import *
 
@@ -343,7 +346,7 @@ class GenDpPath:
 
         if len(solution) == 0:
 
-            raise Small("the lines errot")
+            raise Small("the lines error")
         for j in range(len(solution[0])):
             point = Point3D(solution[0][j][0], solution[0][j][1], lines.points[0].z)
             polys1.points.append(point)
