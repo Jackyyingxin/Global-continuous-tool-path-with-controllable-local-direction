@@ -3,4 +3,5 @@
 
 ### 1.Two-dimensional continuous toolpath generation:  
 In this moudle you can generate the continuous toolpath in any fill angle for the inputed 2D connected region. 
-Please run [`main.py `](#main.py ) of [`sclicer_tool`](#sclicer_tool ) to slice stl models in [`Stl_model`](#Stl_model ).
+
+Please run [`main.py `](#main.py ) of [`sclicer_tool`](#sclicer_tool ) to slice stl models in [`stl_model`](#stl_model ) at first.
