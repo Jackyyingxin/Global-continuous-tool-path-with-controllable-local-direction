@@ -1,5 +1,8 @@
 import copy
+import glob
 import math
+import os
+
 import numpy as np
 import pyclipper
 import torch
@@ -85,6 +88,44 @@ def resample_path(points, num_samples, distance=None):
     resampled_points = points[idx_lower] + (points[idx_upper] - points[idx_lower]) * t.unsqueeze(1)
 
     return resampled_points
+
+
+def load_2d_contours_new(load_path, slicer_start, slice_end):
+    layers = {}
+    #打开文件夹
+    for i in range(len(os.listdir(load_path))):
+        # 遍历 z_layer
+        z_path = os.path.join(load_path, "{}".format(i))
+        for j in range(len(os.listdir(z_path))):
+            # 读取domain
+            out_boundary = glob.glob(os.path.join(z_path + "\{}".format(int(j)), "out-contour*.txt"))
+            inner_boundary = glob.glob(os.path.join(z_path + "\{}".format(int(j)), "inner-contour*.txt"))
+
+            polygon = []
+            "scale"
+            for out in out_boundary:
+                boundary = np.loadtxt(out)[:, :]
+                poly = Polyline.Polyline()
+                for row in boundary:
+
+                        poly.points.append(GeomBase.Point3D(row[0], row[1], row[2]))
+
+                polygon.append(poly)
+            for inner in inner_boundary:
+                inner = np.loadtxt(inner)
+                poly = Polyline.Polyline()
+                for row in inner:
+
+                    poly.points.append(GeomBase.Point3D(row[0], row[1], row[2]))
+                polygon.append(poly)
+            z = polygon[0].points[0].z
+            if z not in layers.keys():
+                layers[z] = []
+            layers[z].append(polygon)
+
+    layers = dic_slice(layers, slicer_start, slice_end)
+    return layers
+
 
 
 def load_2d_contours(inner_path, out_path, slicer_start, coefficient, slice_end):

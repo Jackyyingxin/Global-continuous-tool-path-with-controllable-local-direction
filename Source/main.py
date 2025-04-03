@@ -1,8 +1,7 @@
 import Generate_2D_continuous
 import Utility
-
-inner_path = "../Contour_Data/Gear1/inner_contour.txt"
-out_path = "../Contour_Data/Gear1/out_contour.txt"
+model_name = "Gear1/"
+load_path = "../Contour_Data/" + model_name
 # inner_contour_set, out_contour_set
 first_layer = 0.2004
 H = 0.4
@@ -21,9 +20,9 @@ learning_rate = 0.003
 # The weight of Int item
 W1 = 2
 # The weight of Smooth item
-W2 = 2
+W2 = 1
 # Resample_accuracy
 R = 0.2
 
 pathes = Generate_2D_continuous.generate_2D_continuous_path(
-    inner_path, out_path, start, coefficient, end, interval, angles, iter_num, learning_rate, W1, W2, R, flag)
+    load_path,  start, coefficient, end, interval, angles, iter_num, learning_rate, W1, W2, R, flag)

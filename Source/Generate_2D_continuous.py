@@ -14,10 +14,10 @@ from global_connect import Global_Connect
 import matplotlib.pyplot as plt
 
 
-def generate_2D_continuous_path(inner_path, out_path, start, coefficient, end, interval, angles, iter_num,
+def generate_2D_continuous_path(load_path, start, coefficient, end, interval, angles, iter_num,
                                 learning_rate, W1, W2, R, flag):
     paths = []
-    layers = utils.load_2d_contours(inner_path, out_path, start, coefficient, end)
+    layers = utils.load_2d_contours_new(load_path, start, end)
     c_layers = copy.deepcopy(layers)
     c_layer_key = list(c_layers.keys())
     for z in range(len(c_layer_key)):
@@ -212,7 +212,7 @@ def Get_Connect_points(MST, node, path1, path2, interval):
 
     path2 = torch.roll(path2, dims=0, shifts=-_2index.item())
     path2 = torch.flip(path2, dims=[0])
-    
+
     path1 = torch.roll(path1, dims=0, shifts=-_1index.item())
     # path2 = torch.roll(path2, dims=0, shifts=-_2index.item())
 
