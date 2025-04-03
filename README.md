@@ -5,3 +5,7 @@
 In this moudle you can generate the continuous toolpath in any fill angle for the inputed 2D connected region. 
 
 Please run [`main.py `](#main.py ) of [`sclicer_tool`](#sclicer_tool ) to slice stl models in [`stl_model`](#stl_model ) at first.
+
+Domains belonging to the same layer are stored under a common layer folder, while the inner and outer contours of each domain are stored together within a dedicated domain folder.
+
+After that, you can run the [`main.py `](#main.py ) in the [`Source`](#Source ) folder to obtain the 2D continuous filling path.
