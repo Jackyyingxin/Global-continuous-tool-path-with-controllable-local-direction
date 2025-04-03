@@ -2,38 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6dc9e43c-37ab-4313-93f3-19cea8ab6d6a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSS.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClipperAdaptor.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Contour_Data/Gear1/inner_contour.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Contour_Data/Gear1/out_contour.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Contour_Data/Hulk/inner_contour.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Contour_Data/Hulk/out_contour.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GenHatch.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GenPath.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Generate_2D_continuous.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GeoError.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GeomAIgo.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GeomBase.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Layer.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Line.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PathOptimizer_cuda_test.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Polyline.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RNP.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ray.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Segment.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Generate_2D_continuous.py" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Generate_2D_continuous.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Source/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/Source/utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Utility.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/VtkAdaptor.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/argregin.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/connect_conformal.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/global_connect.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resample.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/slicer_tool/Vtkadaptor.py" beforeDir="false" afterPath="$PROJECT_DIR$/slicer_tool/Vtkadaptor.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +33,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.main">
+  <component name="RunManager" selected="Python.main (2)">
     <configuration name="main (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Global-continuous-tool-path-with-controllable-local-direction" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -127,8 +99,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.main" />
         <item itemvalue="Python.main (2)" />
+        <item itemvalue="Python.main" />
         <item itemvalue="Python.main (1)" />
       </list>
     </recent_temporary>
