@@ -9,3 +9,17 @@ Please run [`main.py `](#main.py ) of [`sclicer_tool`](#sclicer_tool ) to slice 
 Domains belonging to the same layer are stored under a common layer folder, while the inner and outer contours of each domain are stored together within a dedicated domain folder.
 
 After that, you can run the [`main.py `](#main.py ) in the [`Source`](#Source ) folder to obtain the 2D continuous filling path.
+
+# How to Cite ?
+If you use our algorithm, please cite it using the following BibTeX entry:
+```
+@article{ma2023global,
+  title={Global continuous toolpath planning with controllable local directions},
+  author={Ma, Yingxin and Yao, Yuan and Yang, Jinxiu and Zhang, Hang and Liao, Beishui},
+  journal={Computer-Aided Design},
+  volume={164},
+  pages={103593},
+  year={2023},
+  publisher={Elsevier}
+}
+```
